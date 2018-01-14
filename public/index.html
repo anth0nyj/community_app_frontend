@@ -15,5 +15,15 @@
       <input type="submit" />
     </form>
 
+    <p>Logged in username: {{ ctrl.user.username }}</p>
+
+    <h4 ng-click="ctrl.getUsers()">Click to see secret stuff</h4>
+
+    <div>{{ ctrl.error }}</div>
+
+    <div ng-repeat="user in ctrl.users">
+      <h1>{{ user.username }}</h1>
+    </div>
+
   </body>
 </html>
