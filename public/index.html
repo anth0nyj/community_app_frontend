@@ -32,16 +32,16 @@
       <div class="post-box">
         <h1>Communities</h1>
         <hr>
-        <div ng-repeat="community in ctrl.allCommunities" class="post">
+        <div ng-repeat="community in ctrl.allCommunities" class="post" ng-click='ctrl.showThisCommunity(community)'>
           <h2>{{ community.name }}</h2>
           <hr>
         </div>
       </div>
 
       <div class="post-box">
-        <h1>{{ ctrl.allCommunities[2].name }} posts</h1> <hr>
+        <h1>{{ ctrl.showCommunity.name }} posts</h1> <hr>
         <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
-          <div ng-repeat="post in ctrl.allCommunities[2].posts" class="post">
+          <div ng-repeat="post in ctrl.showCommunity.posts" class="post" ng-click='ctrl.showThisPost(post)'>
             <h3>{{ post.title }}</h3> <br>
             {{ post.content }} <hr>
           </div>
@@ -49,10 +49,10 @@
       </div>
 
       <div class="post-box">
-        <h2>{{ ctrl.allCommunities[2].posts[0].title }}</h2>
-        {{ ctrl.allCommunities[2].posts[0].content }} <hr>
+        <h2>{{ ctrl.showPost.title }}</h2>
+        {{ ctrl.showPost.content }} <hr>
         <h2>Replies:</h2>
-        <div ng-repeat="reply in ctrl.allCommunities[2].posts[0].replies" class="post">
+        <div ng-repeat="reply in ctrl.showPost.replies" class="post">
           {{ reply.content }}
         </div>
       </div>
