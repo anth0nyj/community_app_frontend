@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="comm_app">
   <head>
     <meta charset="utf-8">
     <title>Community App</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    test
+  <body ng-controller="mainController as ctrl">
+    {{ctrl.test}}
   </body>
 </html>
