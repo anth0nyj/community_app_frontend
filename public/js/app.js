@@ -119,6 +119,6 @@ app.controller("mainController", ["$http", function($http) {
   //   this.showPosts = this.showCommunity.posts;
   //   console.log('Clicked on:', this.showCommunity);
   //   console.log('Now viewing updated posts:', this.showPosts);
-  }
+  // }
 
 }]);
