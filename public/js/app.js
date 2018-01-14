@@ -114,11 +114,11 @@ app.controller("mainController", ["$http", function($http) {
   }
 
   //ng-click method for each community name, to toggle posts/replies when clicking thru communities:
-  this.showThisCommunity(communityClicked) = () => {
-    this.showCommunity = communityClicked;
-    this.showPosts = this.showCommunity.posts;
-    console.log('Clicked on:', this.showCommunity);
-    console.log('Now viewing updated posts:', this.showPosts);
+  // this.showThisCommunity(communityClicked) = () => {
+  //   this.showCommunity = communityClicked;
+  //   this.showPosts = this.showCommunity.posts;
+  //   console.log('Clicked on:', this.showCommunity);
+  //   console.log('Now viewing updated posts:', this.showPosts);
   }
 
 }]);
