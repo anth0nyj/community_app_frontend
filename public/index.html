@@ -26,6 +26,16 @@
     </div>
 
     <a href="#" ng-click="ctrl.logout()">Log Out</a>
-    
+
+    <h1>Communities</h1>
+    <div ng-repeat="community in ctrl.allCommunities" class="communities">
+      <h2>{{ community.name }}</h2>
+      <hr>
+        <!-- <div ng-repeat="post in community.posts" class="posts">
+          <h3>{{ post.title }}</h3> <br>
+          {{ post.content }}
+        </div> -->
+    </div>
+
   </body>
 </html>
