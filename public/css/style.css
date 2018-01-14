@@ -1,4 +1,15 @@
-.communities {
+.post {
   border: 1px solid red;
   width: 200px;
+  text-align: left;
+}
+
+.post-box {
+  border: 1px solid black;
+  width: 205px;
+  text-align: center;
+}
+
+.main {
+  display: flex;
 }
