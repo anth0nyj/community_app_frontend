@@ -41,5 +41,5 @@ app.controller("mainController", ["$http", function($http) {
     localStorage.clear('token');
     location.reload();
   }
-
+  
 }]);
