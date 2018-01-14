@@ -37,4 +37,9 @@ app.controller("mainController", ["$http", function($http) {
     })
   }
 
+  this.logout = () => {
+    localStorage.clear('token');
+    location.reload();
+  }
+
 }]);
