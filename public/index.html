@@ -24,6 +24,8 @@
       <input type="submit" />
     </form>
 
+    <input type="text" ng-model="searchBox" placeholder="Search...">
+
     <p>Logged in username: {{ ctrl.user.username }}</p>
 
     <h4 ng-click="ctrl.getUsers()">Click to see secret stuff</h4>
@@ -42,7 +44,7 @@
         <h1>Communities</h1>
         <button ng-if='ctrl.logged'>Add Community</button>
         <hr>
-        <div ng-repeat="community in ctrl.allCommunities" class="post" ng-click='ctrl.showThisCommunity(community)'>
+        <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-click='ctrl.showThisCommunity(community)'>
           <h2>{{ community.name }}</h2>
           <hr>
         </div>
@@ -52,7 +54,7 @@
         <h1>{{ ctrl.showCommunity.name }} posts</h1>
         <button ng-if='ctrl.logged'>Add Post</button> <hr>
         <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
-          <div ng-repeat="post in ctrl.showCommunity.posts" class="post" ng-click='ctrl.showThisPost(post)'>
+          <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox" class="post" ng-click='ctrl.showThisPost(post)'>
             <h3>{{ post.title }}</h3> <br>
             {{ post.content }} <br>
             <span ng-if='ctrl.user.id === post.user_id'>
@@ -67,7 +69,7 @@
         {{ ctrl.showPost.content }} <hr>
         <h2>Replies:</h2>
         <button ng-if='ctrl.logged'>Add Reply</button>
-        <div ng-repeat="reply in ctrl.showPost.replies" class="post">
+        <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox" class="post">
           <p>{{ reply.content }}</p>
           <span ng-if='ctrl.user.id === reply.user_id'>
             <i ng-click='ctrl.editReplyModal(reply)'>edit</i> |  <i>delete</i>
