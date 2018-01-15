@@ -1,18 +1,35 @@
 body {
   color: white;
   background-color: rgb(46, 46, 47);
+  font-family: Arial;
 }
 
 .post {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 380px;
   text-align: left;
 }
 
 .post-box {
-  border: 1px solid black;
-  width: 385px;
+  border: 2px solid rgb(52, 99, 102);
+  width: 390px;
   text-align: center;
+}
+
+.one {
+  border-radius: 10px 0 0 10px;
+  text-align: left;
+}
+
+.two {
+  background-color: rgb(52, 99, 102);
+}
+
+.three {
+  border-radius: 0 10px 10px 0;
+  color: rgb(52, 99, 102);
+  border-color: rgb(216, 217, 218);
+  background-color: rgb(216, 217, 218);
 }
 
 .main {

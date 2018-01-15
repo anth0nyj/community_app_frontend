@@ -41,7 +41,7 @@
     <div class="main">
       <div class="content">
 
-        <div class="post-box">
+        <div class="post-box one">
           <h1>Communities</h1>
           <button ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
@@ -51,7 +51,7 @@
           </div>
         </div>
 
-        <div class="post-box">
+        <div class="post-box two">
           <h1>{{ ctrl.showCommunity.name }} posts</h1>
           <button ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
@@ -65,7 +65,7 @@
           <!-- </div> -->
         </div>
 
-        <div class="post-box">
+        <div class="post-box three">
           <h2>{{ ctrl.showPost.title }}</h2>
           {{ ctrl.showPost.content }} <hr>
           <h2>Replies:</h2>
