@@ -9,9 +9,18 @@
   </head>
   <body ng-controller="mainController as ctrl">
 
+    <label for="login-form">Login</label>
     <form ng-submit="ctrl.login(userPass)">
       <input type="text" ng-model="userPass.username" placeholder="username" />
       <input type="password" ng-model="userPass.password" placeholder="password" />
+      <input type="submit" />
+    </form>
+
+    <label for="register-form">Register</label>
+    <form ng-submit="ctrl.register(regData)">
+      <input type="text" ng-model="regData.username" placeholder="username" />
+      <input type="password" ng-model="regData.password" placeholder="password" />
+      <!-- <input type="password" ng-model="regData.confirmPass" placeholder="confirm password" /> -->
       <input type="submit" />
     </form>
 
