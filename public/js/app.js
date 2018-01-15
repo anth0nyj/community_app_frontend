@@ -13,6 +13,11 @@ app.controller("mainController", ["$http", function($http) {
   this.currentEdit = {};
   this.editp = false;
   this.editr = false;
+  this.create = false;
+  this.createComm = false;
+  this.createPost = false;
+  this.createReply = false;
+  this.formData = {};
 
   this.login = (userPass) => {
     // console.log(userPass);
@@ -78,9 +83,11 @@ app.controller("mainController", ["$http", function($http) {
       this.allCommunities = response.data;
       this.showCommunity = this.allCommunities[0];
       this.showPost = this.showCommunity.posts[0];
-      console.log('All Communities:', this.allCommunities);
+      // console.log('All Communities:', this.allCommunities);
       // console.log('Default Show Community:', this.showCommunity);
       // console.log('Default Show Post', this.showPost);
+    }, error => {
+      console.error(error.message);
     }).catch( err => console.error('Catch', err));
   }
 
@@ -107,6 +114,8 @@ app.controller("mainController", ["$http", function($http) {
       console.log(response.data);
       const updateByIndex = this.showCommunity.posts.findIndex(item => item.id === response.data.id);
       this.showCommunity.posts.splice(updateByIndex, 1, response.data);
+    }, error => {
+      console.error(error.message);
     }).catch(err => console.error('Catch', err));
 
     this.editp = false;
@@ -122,6 +131,8 @@ app.controller("mainController", ["$http", function($http) {
       console.log(response.data);
       const updateByIndex = this.showPost.replies.findIndex(item => item.id === response.data.id);
       this.showPost.replies.splice(updateByIndex, 1, response.data);
+    }, error => {
+      console.error(error.message);
     }).catch(err => console.error('Catch', err));
 
     this.editr = false;
@@ -132,6 +143,70 @@ app.controller("mainController", ["$http", function($http) {
     this.editr = false;
     this.editp = false;
     this.currentEdit = {};
+  }
+
+  this.addCommModal = () => {
+    this.create = true;
+    this.createComm = true;
+  }
+
+  this.addPostModal = () => {
+    this.create = true;
+    this.createPost = true;
+  }
+
+  this.addReplyModal = () => {
+    this.create = true;
+    this.createReply = true;
+  }
+
+  this.dontAdd = () => {
+    this.create = false;
+    this.createReply = false;
+    this.createPost = false;
+    this.createComm = false;
+    this.formData = {};
+  }
+
+  this.addCommunity = () => {
+    $http({
+      method: 'POST',
+      url: this.url + '/communities',
+      data: this.formData
+    }).then( response => {
+      this.allCommunities.push(response.data)
+    }, error => {
+      console.error(error.message);
+    }).catch(err => console.err('Catch', err));
+  }
+
+  this.addPost = () => {
+    this.formData.community_id = this.showCommunity.id ;
+    this.formData.user_id = this.user.id;
+    $http({
+      method: 'POST',
+      url: this.url + '/posts',
+      data: this.formData
+    }).then( response => {
+      this.showCommunity.posts.push(response.data)
+    }, error => {
+      console.error(error.message);
+    }).catch(err => console.err('Catch', err));
+  }
+
+  this.addReply = () => {
+    this.formData.user_id = this.user.id;
+    this.formData.post_id = this.showPost.id;
+    $http({
+      method: 'POST',
+      url: this.url + '/posts/' + this.formData.post_id + '/replies',
+      data: this.formData
+    }).then( response => {
+      this.showPost.replies.push(response.data)
+    }, error => {
+      console.error(error.message);
+    }).catch(err => console.err('Catch', err));
+
   }
 
   this.showThisCommunity = (communityClicked) => {
