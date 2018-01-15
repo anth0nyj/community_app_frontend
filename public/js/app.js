@@ -113,12 +113,17 @@ app.controller("mainController", ["$http", function($http) {
     this.currentEdit = {};
   }
 
-  //ng-click method for each community name, to toggle posts/replies when clicking thru communities:
-  // this.showThisCommunity(communityClicked) = () => {
-  //   this.showCommunity = communityClicked;
-  //   this.showPosts = this.showCommunity.posts;
-  //   console.log('Clicked on:', this.showCommunity);
-  //   console.log('Now viewing updated posts:', this.showPosts);
-  // }
+  // ng-click method for each community name, to toggle posts/replies when clicking thru communities:
+  this.showThisCommunity = (communityClicked) => {
+    this.showCommunity = communityClicked;
+    this.showPost = this.showCommunity.posts[0];
+    // console.log('Clicked on:', this.showCommunity);
+    // console.log('Now viewing updated posts:', this.showPost);
+  }
+
+  this.showThisPost = (postClicked) => {
+    this.showPost = postClicked;
+    console.log('CLICKED ON A DIFF POST', this.showPost);
+  }
 
 }]);
