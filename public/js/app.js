@@ -41,5 +41,9 @@ app.controller("mainController", ["$http", function($http) {
     localStorage.clear('token');
     location.reload();
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 75b687340f8e1149ef1e5696dc6a5cc90cd11180
 }]);
