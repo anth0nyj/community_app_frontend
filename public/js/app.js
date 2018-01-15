@@ -95,10 +95,13 @@ app.controller("mainController", ["$http", function($http) {
   this.joinComm = (community) => {
     console.log(community);
     console.log(this.user);
-    // $http({
-    //   method: 'POST',
-    //   url: this.url + '/'
-    // })
+    $http({
+      method: 'POST',
+      url: this.url + '/ledgers',
+      data: { user_id: this.user.id, community_id: community.id }
+    }).then(response => {
+      console.log(response.data);
+    })
   }
 
   this.getAllCommunities();
