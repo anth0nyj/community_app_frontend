@@ -53,7 +53,6 @@ app.controller("mainController", ["$http", function($http) {
     this.logged = false;
   }
 
-
   this.getAllCommunities = () => {
     $http({
       url: this.url + '/communities',
@@ -129,5 +128,5 @@ app.controller("mainController", ["$http", function($http) {
     this.showPost = postClicked;
     // console.log('CLICKED ON A DIFF POST', this.showPost);
   }
-
+  
 }]);
