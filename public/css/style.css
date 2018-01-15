@@ -1,6 +1,7 @@
 body {
   color: white;
   background-color: rgb(46, 46, 47);
+  font-family: Arial;
 }
 
 .post {
@@ -10,8 +11,8 @@ body {
 }
 
 .post-box {
-  border: 1px solid black;
-  width: 385px;
+  border: 2px solid rgb(52, 99, 102);
+  width: 390px;
   text-align: center;
 }
 
