@@ -96,10 +96,13 @@
         <div class='edit'>
           <p ng-click='ctrl.dontEdit()'>x</p>
           <form ng-submit='ctrl.editReply(ctrl.currentEdit.id)'>
-            <input type="text" ng-model="ctrl.currentEdit.content"required/>
+            <textarea ng-model="ctrl.currentEdit.content"></textarea>
             <input type="submit" value="+" class="submit"/>
           </form>
         </div>
+      </div>
+
+      <div class="modalContainer" ng-if='ctrl.create' ng-include=" 'partials/createforms.html' ">
       </div>
     </div>
 
