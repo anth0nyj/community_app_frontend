@@ -6,37 +6,42 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
   </head>
   <body ng-controller="mainController as ctrl">
 
-    <label for="login-form">Login</label>
-    <form ng-submit="ctrl.login(userPass)">
-      <input type="text" ng-model="userPass.username" placeholder="username" />
-      <input type="password" ng-model="userPass.password" placeholder="password" />
-      <input type="submit" />
-    </form>
+    <div ng-include=" 'partials/nav.html' "></div>
 
-    <label for="register-form">Register</label>
-    <form ng-submit="ctrl.register(regData)">
-      <input type="text" ng-model="regData.username" placeholder="username" />
-      <input type="password" ng-model="regData.password" placeholder="password" />
-      <!-- <input type="password" ng-model="regData.confirmPass" placeholder="confirm password" /> -->
-      <input type="submit" />
-    </form>
+    <div class="loginContainer" ng-if='ctrl.logged === false'>
+      <label for="login-form">Login</label>
+      <form ng-submit="ctrl.login(userPass)">
+        <input type="text" ng-model="userPass.username" placeholder="username" />
+        <input type="password" ng-model="userPass.password" placeholder="password" />
+        <input type="submit" />
+      </form>
+
+      <label for="register-form">Register</label>
+      <form ng-submit="ctrl.register(regData)">
+        <input type="text" ng-model="regData.username" placeholder="username" />
+        <input type="password" ng-model="regData.password" placeholder="password" />
+        <!-- <input type="password" ng-model="regData.confirmPass" placeholder="confirm password" /> -->
+        <input type="submit" />
+      </form>
+    </div>
 
     <input type="text" ng-model="searchBox" placeholder="Search...">
 
-    <p>Logged in username: {{ ctrl.user.username }}</p>
+    <p ng-if='ctrl.logged'>Welcome, {{ ctrl.user.username }}</p>
 
-    <h4 ng-click="ctrl.getUsers()">Click to see secret stuff</h4>
+    <!-- <h4 ng-click="ctrl.getUsers()">Click to see secret stuff</h4> -->
 
     <div>{{ ctrl.error }}</div>
 
-    <div ng-repeat="user in ctrl.users">
+    <!-- <div ng-repeat="user in ctrl.users">
       <h1>{{ user.username }}</h1>
-    </div>
+    </div> -->
 
-    <a href="#" ng-click="ctrl.logout()">Log Out</a>
+    <!-- <a href="#" ng-click="ctrl.logout()">Log Out</a> -->
 
     <div class="main">
       <div class="content">
