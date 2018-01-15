@@ -12,7 +12,8 @@
 
     <div ng-include=" 'partials/nav.html' "></div>
 
-    <div class="loginContainer" ng-if='ctrl.logged === false'>
+    <div class="loginContainer" ng-if='ctrl.clickedLog === true'>
+      <p ng-click='ctrl.clickedLog = false'>x</p>
       <label for="login-form">Login</label>
       <form ng-submit="ctrl.login(userPass)">
         <input type="text" ng-model="userPass.username" placeholder="username" />
