@@ -5,6 +5,7 @@ const app = angular.module("comm_app", []);
 app.controller("mainController", ["$http", function($http) {
   this.url = 'http://localhost:3000';
   this.user = {};
+  this.logged = false;
   this.allCommunities = [];
   this.userCommunities = [];
   this.showCommunity = {};
@@ -24,6 +25,7 @@ app.controller("mainController", ["$http", function($http) {
       console.log(response);
       this.user = response.data.user;
       console.log('USER DATA:', this.user);
+      this.logged = true;
       localStorage.setItem('token', JSON.stringify(response.data.token));
     });
   }
@@ -48,6 +50,7 @@ app.controller("mainController", ["$http", function($http) {
   this.logout = () => {
     localStorage.clear('token');
     location.reload();
+    this.logged = false;
   }
 
 
@@ -70,11 +73,13 @@ app.controller("mainController", ["$http", function($http) {
   this.editPostModal = ( post ) => {
     this.editp = true;
     this.currentEdit = angular.copy(post);
+    console.log(this.currentEdit);
   }
 
   this.editReplyModal = ( reply) => {
     this.editr = true;
     this.currentEdit = angular.copy(reply);
+    console.log(this.currentEdit);
   }
 
   this.editPost = (id) => {
@@ -113,7 +118,6 @@ app.controller("mainController", ["$http", function($http) {
     this.currentEdit = {};
   }
 
-  // ng-click method for each community name, to toggle posts/replies when clicking thru communities:
   this.showThisCommunity = (communityClicked) => {
     this.showCommunity = communityClicked;
     this.showPost = this.showCommunity.posts[0];
@@ -123,7 +127,7 @@ app.controller("mainController", ["$http", function($http) {
 
   this.showThisPost = (postClicked) => {
     this.showPost = postClicked;
-    console.log('CLICKED ON A DIFF POST', this.showPost);
+    // console.log('CLICKED ON A DIFF POST', this.showPost);
   }
 
 }]);
