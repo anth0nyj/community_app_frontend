@@ -33,8 +33,14 @@ app.controller("mainController", ["$http", function($http) {
       for (ledger of this.ledgers) {
         if (ledger.user_id == user.id) {
           this.userLedgers.push(ledger);
+          for (comm of this.allCommunities) {
+            if (ledger.community_id == comm.id) {
+              this.userCommunities.push(comm);
+            }
+          }
         }
       }
+      console.log(this.userCommunities);
     })
   };
 
