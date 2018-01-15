@@ -15,14 +15,14 @@ app.controller("mainController", ["$http", function($http) {
   this.editr = false;
 
   this.login = (userPass) => {
-    console.log(userPass);
+    // console.log(userPass);
 
     $http({
       method: 'POST',
       url: this.url + '/users/login',
       data: { user: { username: userPass.username, password: userPass.password }}
     }).then(response => {
-      console.log(response);
+      // console.log(response);
       this.user = response.data.user;
       console.log('USER DATA:', this.user);
       this.logged = true;
@@ -74,19 +74,19 @@ app.controller("mainController", ["$http", function($http) {
       url: this.url + '/communities',
       method: 'GET'
     }).then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       this.allCommunities = response.data;
       this.showCommunity = this.allCommunities[0];
       this.showPost = this.showCommunity.posts[0];
       console.log('All Communities:', this.allCommunities);
-      console.log('Default Show Community:', this.showCommunity);
-      console.log('Default Show Post', this.showPost);
+      // console.log('Default Show Community:', this.showCommunity);
+      // console.log('Default Show Post', this.showPost);
     }).catch( err => console.error('Catch', err));
   }
 
   this.getAllCommunities();
 
-  this.editPostModal = ( post ) => {
+  this.editPostModal = ( post) => {
     this.editp = true;
     this.currentEdit = angular.copy(post);
     console.log(this.currentEdit);
@@ -98,9 +98,9 @@ app.controller("mainController", ["$http", function($http) {
     console.log(this.currentEdit);
   }
 
-  this.editPost = (id) => {
+  this.editPost = () => {
     $http({
-      url: this.url + '/posts/' + id,
+      url: this.url + '/posts/' + this.currentEdit.id,
       method: 'PUT',
       data: this.currentEdit
     }).then(response => {
@@ -113,9 +113,9 @@ app.controller("mainController", ["$http", function($http) {
     this.currentEdit = {};
   }
 
-  this.editReply = (reply) => {
+  this.editReply = () => {
     $http({
-      url: this.url + '/posts/' + reply.post_id + '/replies/' + reply.id,
+      url: this.url + '/posts/' + this.currentEdit.post_id + '/replies/' + this.currentEdit.id,
       method: 'PUT',
       data: this.currentEdit
     }).then(response => {
