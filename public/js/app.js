@@ -84,7 +84,7 @@ app.controller("mainController", ["$http", function($http) {
       this.allCommunities = response.data;
       this.showCommunity = this.allCommunities[0];
       this.showPost = this.showCommunity.posts[0];
-      // console.log('All Communities:', this.allCommunities);
+      console.log('All Communities:', this.allCommunities);
       // console.log('Default Show Community:', this.showCommunity);
       // console.log('Default Show Post', this.showPost);
     }, error => {

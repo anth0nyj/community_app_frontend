@@ -55,7 +55,7 @@
           <h1>{{ ctrl.showCommunity.name }} posts</h1>
           <button ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
-            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox" class="post" ng-click='ctrl.showThisPost(post)'>
+            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-click='ctrl.showThisPost(post)'>
               <h3>{{ post.title }}</h3> <br>
               {{ post.content }} <br>
               <span ng-if='ctrl.user.id === post.user_id'>
@@ -70,7 +70,7 @@
           {{ ctrl.showPost.content }} <hr>
           <h2>Replies:</h2>
           <button ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
-          <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox" class="post">
+          <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox | orderBy: 'id'" class="post">
             <p>{{ reply.content }}</p>
             <span ng-if='ctrl.user.id === reply.user_id'>
               <i ng-click='ctrl.editReplyModal(reply)'>edit</i> |  <i ng-click='ctrl.deleteReply(reply)'>delete</i>
