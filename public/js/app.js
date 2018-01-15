@@ -19,6 +19,7 @@ app.controller("mainController", ["$http", function($http) {
   this.createReply = false;
   this.formData = {};
   this.deleteObj = {};
+  this.clickedLog = false;
 
   this.login = (userPass) => {
     // console.log(userPass);
@@ -32,6 +33,7 @@ app.controller("mainController", ["$http", function($http) {
       this.user = response.data.user;
       console.log('USER DATA:', this.user);
       this.logged = true;
+      this.clickedLog = false;
       localStorage.setItem('token', JSON.stringify(response.data.token));
     });
   }
@@ -48,6 +50,7 @@ app.controller("mainController", ["$http", function($http) {
       this.user = response.data.user;
       console.log('USER DATA:', this.user);
       this.logged = true;
+      this.clickedLog = false;
       localStorage.setItem('token', JSON.stringify(response.data.token));
     });
   }
