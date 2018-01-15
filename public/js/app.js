@@ -18,6 +18,7 @@ app.controller("mainController", ["$http", function($http) {
   this.createPost = false;
   this.createReply = false;
   this.formData = {};
+  this.deleteObj = {};
 
   this.login = (userPass) => {
     // console.log(userPass);
@@ -174,7 +175,9 @@ app.controller("mainController", ["$http", function($http) {
       url: this.url + '/communities',
       data: this.formData
     }).then( response => {
-      this.allCommunities.push(response.data)
+      this.allCommunities.push(response.data);
+      this.create = false;
+      this.createComm = false;
     }, error => {
       console.error(error.message);
     }).catch(err => console.err('Catch', err));
@@ -188,7 +191,9 @@ app.controller("mainController", ["$http", function($http) {
       url: this.url + '/posts',
       data: this.formData
     }).then( response => {
-      this.showCommunity.posts.push(response.data)
+      this.showCommunity.posts.push(response.data);
+      this.create = false;
+      this.createPost = false;
     }, error => {
       console.error(error.message);
     }).catch(err => console.err('Catch', err));
@@ -202,11 +207,41 @@ app.controller("mainController", ["$http", function($http) {
       url: this.url + '/posts/' + this.formData.post_id + '/replies',
       data: this.formData
     }).then( response => {
-      this.showPost.replies.push(response.data)
+      this.showPost.replies.push(response.data);
+      this.create = false;
+      this.createReply = false;
     }, error => {
       console.error(error.message);
     }).catch(err => console.err('Catch', err));
 
+  }
+
+  this.deletePost = (post) => {
+    this.deleteObj = post;
+    $http({
+      method: 'DELETE',
+      url: this.url + '/posts/' + this.deleteObj.id
+    }).then(response => {
+      const removeByIndex = this.showCommunity.posts.findIndex(item => item.id === this.deleteObj.id);
+      this.showCommunity.posts.splice(removeByIndex, 1);
+      this.deleteObj = {};
+    }, error => {
+      console.error(error.message);
+    }).catch(err => console.err('Catch', err));
+  }
+
+  this.deleteReply = (reply) => {
+    this.deleteObj = reply;
+    $http({
+      method: 'DELETE',
+      url: this.url + '/posts/' + this.showPost.id + '/replies/' + this.deleteObj.id
+    }).then(response => {
+      const removeByIndex = this.showPost.replies.findIndex(item => item.id === this.deleteObj.id);
+      this.showPost.replies.splice(removeByIndex, 1);
+      this.deleteObj = {};
+    }, error => {
+      console.error(error.message);
+    }).catch(err => console.err('Catch', err));
   }
 
   this.showThisCommunity = (communityClicked) => {
