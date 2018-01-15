@@ -80,6 +80,27 @@
         </div>
 
       </div>
+
+      <div class = 'modalContainer' ng-if='ctrl.editp'>
+        <div class = 'edit'>
+          <p ng-click='ctrl.dontEdit()'>x</p>
+          <form ng-submit='ctrl.editPost()'>
+            <input type="text" ng-model="ctrl.currentEdit.title"required/>
+            <input type="text" ng-model="ctrl.currentEdit.content" required/>
+            <input type="submit" value="+" class="submit"/>
+          </form>
+        </div>
+      </div>
+
+      <div class='modalContainer' ng-if='ctrl.editr'>
+        <div class='edit'>
+          <p ng-click='ctrl.dontEdit()'>x</p>
+          <form ng-submit='ctrl.editReply(ctrl.currentEdit.id)'>
+            <input type="text" ng-model="ctrl.currentEdit.content"required/>
+            <input type="submit" value="+" class="submit"/>
+          </form>
+        </div>
+      </div>
     </div>
 
   </body>
