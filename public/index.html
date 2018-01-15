@@ -43,7 +43,7 @@
 
         <div class="post-box">
           <h1>Communities</h1>
-          <button ng-if='ctrl.logged'>Add Community</button>
+          <button ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
           <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-click='ctrl.showThisCommunity(community)'>
             <h2>{{ community.name }}</h2>
@@ -53,13 +53,13 @@
 
         <div class="post-box">
           <h1>{{ ctrl.showCommunity.name }} posts</h1>
-          <button ng-if='ctrl.logged'>Add Post</button> <hr>
+          <button ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
             <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox" class="post" ng-click='ctrl.showThisPost(post)'>
               <h3>{{ post.title }}</h3> <br>
               {{ post.content }} <br>
               <span ng-if='ctrl.user.id === post.user_id'>
-                <i ng-click='ctrl.editPostModal(post)'>edit</i> |  <i>delete</i>
+                <i ng-click='ctrl.editPostModal(post)'>edit</i> |  <i ng-click='ctrl.deletePost(post)'>delete</i>
               </span> <hr>
             </div>
           <!-- </div> -->
@@ -69,11 +69,11 @@
           <h2>{{ ctrl.showPost.title }}</h2>
           {{ ctrl.showPost.content }} <hr>
           <h2>Replies:</h2>
-          <button ng-if='ctrl.logged'>Add Reply</button>
+          <button ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
           <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox" class="post">
             <p>{{ reply.content }}</p>
             <span ng-if='ctrl.user.id === reply.user_id'>
-              <i ng-click='ctrl.editReplyModal(reply)'>edit</i> |  <i>delete</i>
+              <i ng-click='ctrl.editReplyModal(reply)'>edit</i> |  <i ng-click='ctrl.deleteReply(reply)'>delete</i>
             </span>
             <br>
           </div>
@@ -86,7 +86,7 @@
           <p ng-click='ctrl.dontEdit()'>x</p>
           <form ng-submit='ctrl.editPost()'>
             <input type="text" ng-model="ctrl.currentEdit.title"required/>
-            <input type="text" ng-model="ctrl.currentEdit.content" required/>
+            <textarea ng-model="ctrl.currentEdit.content" required></textarea>
             <input type="submit" value="+" class="submit"/>
           </form>
         </div>
@@ -96,7 +96,7 @@
         <div class='edit'>
           <p ng-click='ctrl.dontEdit()'>x</p>
           <form ng-submit='ctrl.editReply(ctrl.currentEdit.id)'>
-            <textarea ng-model="ctrl.currentEdit.content"></textarea>
+            <textarea ng-model="ctrl.currentEdit.content" required></textarea>
             <input type="submit" value="+" class="submit"/>
           </form>
         </div>
