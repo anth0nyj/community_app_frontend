@@ -92,6 +92,15 @@ app.controller("mainController", ["$http", function($http) {
     }).catch( err => console.error('Catch', err));
   }
 
+  this.joinComm = (community) => {
+    console.log(community);
+    console.log(this.user);
+    // $http({
+    //   method: 'POST',
+    //   url: this.url + '/'
+    // })
+  }
+
   this.getAllCommunities();
 
   this.editPostModal = ( post) => {
