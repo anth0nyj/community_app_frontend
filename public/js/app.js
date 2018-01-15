@@ -20,13 +20,25 @@ app.controller("mainController", ["$http", function($http) {
     $http({
       method: 'POST',
       url: this.url + '/users/login',
-      data: { user: { username: userPass.username, password: userPass.password }},
+      data: { user: { username: userPass.username, password: userPass.password }}
     }).then(response => {
       console.log(response);
       this.user = response.data.user;
       console.log('USER DATA:', this.user);
       this.logged = true;
       localStorage.setItem('token', JSON.stringify(response.data.token));
+    });
+  }
+
+  this.register = (regData) => {
+    console.log(regData);
+
+    $http({
+      method: 'POST',
+      url: this.url + '/users/create',
+      data: { user: { username: regData.username, password: regData.password }}
+    }).then(response => {
+      this.login(response);
     });
   }
 
