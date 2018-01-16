@@ -60,7 +60,7 @@
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
             <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-click='ctrl.showThisPost(post)'>
               <h3>{{ post.title }}</h3> <br>
-              {{ post.content }} <br>
+              <p>{{ post.content }}</p> <br>
               <span ng-if='ctrl.user.id === post.user_id'>
                 <i ng-click='ctrl.editPostModal(post)'>edit</i> |  <i ng-click='ctrl.deletePost(post)'>delete</i>
               </span> <hr>
