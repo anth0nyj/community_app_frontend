@@ -2,7 +2,7 @@
   <p ng-click='ctrl.dontAdd()'>x</p>
   <form ng-submit='ctrl.addCommunity()'>
     <input type="text" ng-model='ctrl.formData.name' required/>
-    <input type="submit" value="+" class="submit"/>
+    <button type="submit" class="submit">+</button>
   </form>
 </div>
 
@@ -11,7 +11,7 @@
   <form ng-submit='ctrl.addPost()'>
     <input type="text" ng-model='ctrl.formData.title' required/>
     <textarea ng-model='ctrl.formData.content' required></textarea>
-    <input type="submit" value="+" class="submit"/>
+    <button type="submit" class="submit">+</button>
   </form>
 </div>
 
@@ -19,6 +19,6 @@
   <p ng-click='ctrl.dontAdd()'>x</p>
   <form ng-submit='ctrl.addReply()'>
     <textarea ng-model='ctrl.formData.content' required></textarea>
-    <input type="submit" value="+" class="submit"/>
+    <button type="submit" class="submit">+</button>
   </form>
 </div>
