@@ -38,15 +38,7 @@
 
     <p ng-if='ctrl.logged'>Welcome, {{ ctrl.user.username }}</p>
 
-    <!-- <h4 ng-click="ctrl.getUsers()">Click to see secret stuff</h4> -->
-
-    <div>{{ ctrl.error }}</div>
-
-    <!-- <div ng-repeat="user in ctrl.users">
-      <h1>{{ user.username }}</h1>
-    </div> -->
-
-    <!-- <a href="#" ng-click="ctrl.logout()">Log Out</a> -->
+    <a href="#" ng-click="ctrl.logout()">Log Out</a>
 
     <div class="main">
       <div class="content">
@@ -57,6 +49,7 @@
           <hr>
           <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-click='ctrl.showThisCommunity(community)'>
             <h2>{{ community.name }}</h2>
+            <button ng-click="ctrl.joinComm(community)">Join</button>
             <hr>
           </div>
         </div>
