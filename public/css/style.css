@@ -56,3 +56,7 @@ body {
   margin: auto;
   text-align: center;
 }
+
+.clickable:hover {
+  cursor: pointer;
+}
