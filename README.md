@@ -1,1 +1,0 @@
-# community_app_frontend
