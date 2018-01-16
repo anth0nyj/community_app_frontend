@@ -3,6 +3,9 @@ body {
   background-color: rgb(46, 46, 47);
   /* font-family: Arial; */
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .post {
@@ -48,11 +51,16 @@ body {
 
 .main {
   text-align: center;
+  flex: 1;
 }
 
 .content {
   width: 80%;
   display: flex;
   margin: auto;
+  text-align: center;
+}
+
+footer {
   text-align: center;
 }
