@@ -45,18 +45,18 @@
 
         <div class="post-box one">
           <h1>Communities</h1>
-          <button ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
+          <button class="addBtn addOne" ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
           <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-click='ctrl.showThisCommunity(community)'>
             <h2>{{ community.name }}</h2>
-            <button ng-click="ctrl.joinComm(community)">Join</button>
+            <button class="button" ng-click="ctrl.joinComm(community)">Join</button>
             <hr>
           </div>
         </div>
 
         <div class="post-box two">
           <h1>{{ ctrl.showCommunity.name }} posts</h1>
-          <button ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
+          <button class="addBtn addTwo" ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
             <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-click='ctrl.showThisPost(post)'>
               <h3>{{ post.title }}</h3> <br>
@@ -77,7 +77,7 @@
             <h3>Replies:</h3>
           </div>
           <hr>
-          <button ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
+          <button class="addBtn addThree" ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
           <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox | orderBy: 'id'" class="post">
             <p>{{ reply.content }}</p>
             <hr style="width: auto">

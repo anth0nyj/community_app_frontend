@@ -14,7 +14,7 @@ body {
 
 .post-box {
   border: 2px solid rgb(52, 99, 102);
-  width: 390px;
+  min-width: 390px;
   text-align: center;
 }
 
@@ -59,4 +59,33 @@ body {
 
 .post:hover {
   cursor: pointer;
+}
+
+.button {
+  min-width: 70px;
+  color: white;
+  background-color: rgb(52, 99, 102);
+}
+
+.addBtn {
+  color: white;
+  min-width: 170px;
+}
+
+.addOne {
+  background-color: rgb(52, 99, 102);
+}
+
+.addTwo {
+  color: rgb(46, 46, 47);
+  border: 1px solid rgb(46, 46, 47);
+  background-color: rgb(216, 217, 218);
+}
+
+.addTwo:hover {
+  border-color: white;
+}
+
+.addThree {
+  background-color: rgb(85, 85, 86);
 }
