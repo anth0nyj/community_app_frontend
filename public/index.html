@@ -1,12 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="comm_app">
   <head>
     <meta charset="utf-8">
     <title>Community App</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/modals.css">
   </head>
-  <body>
-    test
+  <body ng-controller="mainController as ctrl">
+
+    <div ng-include=" 'partials/nav.html' "></div>
+
+    <div class="loginContainer" ng-if='ctrl.clickedLog === true'>
+      <div class="loginForm">
+        <p ng-click='ctrl.clickedLog = false'>x</p>
+        <label for="login-form">Login</label>
+        <form ng-submit="ctrl.login(userPass)">
+          <input type="text" ng-model="userPass.username" placeholder="username" />
+          <input type="password" ng-model="userPass.password" placeholder="password" />
+          <button type="submit">Submit</button>
+        </form>
+
+        <label for="register-form">Register</label>
+        <form ng-submit="ctrl.register(regData)">
+          <input type="text" ng-model="regData.username" placeholder="username" />
+          <input type="password" ng-model="regData.password" placeholder="password" />
+          <!-- <input type="password" ng-model="regData.confirmPass" placeholder="confirm password" /> -->
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <input type="text" ng-model="searchBox" placeholder="Search...">
+
+    <p ng-if='ctrl.logged'>Welcome, {{ ctrl.user.username }}</p>
+
+    <a href="#" ng-click="ctrl.logout()">Log Out</a>
+
+    <div class="main">
+      <div class="content">
+
+        <div class="post-box one">
+          <h1>Communities</h1>
+          <button ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
+          <hr>
+          <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-click='ctrl.showThisCommunity(community)'>
+            <h2>{{ community.name }}</h2>
+            <button ng-click="ctrl.joinComm(community)">Join</button>
+            <hr>
+          </div>
+        </div>
+
+        <div class="post-box two">
+          <h1>{{ ctrl.showCommunity.name }} posts</h1>
+          <button ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
+          <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
+            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-click='ctrl.showThisPost(post)'>
+              <h3>{{ post.title }}</h3> <br>
+              <p>{{ post.content }}</p> <br>
+              <span ng-if='ctrl.user.id === post.user_id'>
+                <i ng-click='ctrl.editPostModal(post)'>edit</i> |  <i ng-click='ctrl.deletePost(post)'>delete</i>
+              </span> <hr>
+            </div>
+          <!-- </div> -->
+        </div>
+
+        <div class="post-box three">
+          <div class="activePost">
+            <h2>{{ ctrl.showPost.title }}</h2>
+            {{ ctrl.showPost.content }}
+          </div>
+          <div class="replyTitle">
+            <h3>Replies:</h3>
+          </div>
+          <hr>
+          <button ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
+          <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox | orderBy: 'id'" class="post">
+            <p>{{ reply.content }}</p>
+            <hr style="width: auto">
+            <span ng-if='ctrl.user.id === reply.user_id'>
+              <i ng-click='ctrl.editReplyModal(reply)'>edit</i> |  <i ng-click='ctrl.deleteReply(reply)'>delete</i>
+            </span>
+            <br>
+          </div>
+        </div>
+
+      </div>
+
+      <div class = 'modalContainer' ng-if='ctrl.editp'>
+        <div class = 'edit'>
+          <p ng-click='ctrl.dontEdit()'>x</p>
+          <form ng-submit='ctrl.editPost()'>
+            <input type="text" ng-model="ctrl.currentEdit.title"required/>
+            <textarea ng-model="ctrl.currentEdit.content" required></textarea>
+            <button type="submit" class="submit">+</button>
+          </form>
+        </div>
+      </div>
+
+      <div class='modalContainer' ng-if='ctrl.editr'>
+        <div class='edit'>
+          <p ng-click='ctrl.dontEdit()'>x</p>
+          <form ng-submit='ctrl.editReply(ctrl.currentEdit.id)'>
+            <textarea ng-model="ctrl.currentEdit.content" required></textarea>
+            <button type="submit" class="submit">+</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modalContainer" ng-if='ctrl.create' ng-include=" 'partials/createforms.html' ">
+      </div>
+    </div>
+
   </body>
 </html>
