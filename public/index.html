@@ -38,15 +38,7 @@
 
     <p ng-if='ctrl.logged'>Welcome, {{ ctrl.user.username }}</p>
 
-    <!-- <h4 ng-click="ctrl.getUsers()">Click to see secret stuff</h4> -->
-
-    <div>{{ ctrl.error }}</div>
-
-    <!-- <div ng-repeat="user in ctrl.users">
-      <h1>{{ user.username }}</h1>
-    </div> -->
-
-    <!-- <a href="#" ng-click="ctrl.logout()">Log Out</a> -->
+    <a href="#" ng-click="ctrl.logout()">Log Out</a>
 
     <div class="main">
       <div class="content">
@@ -56,7 +48,8 @@
           <button ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
           <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-click='ctrl.showThisCommunity(community)'>
-            <h2 class="clickable">{{ community.name }}</h2>
+            <h2>{{ community.name }}</h2>
+            <button ng-click="ctrl.joinComm(community)">Join</button>
             <hr>
           </div>
         </div>
@@ -66,8 +59,8 @@
           <button ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
             <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-click='ctrl.showThisPost(post)'>
-              <h3 class="clickable">{{ post.title }}</h3> <br>
-              <p class="clickable">{{ post.content }}</p> <br>
+              <h3>{{ post.title }}</h3> <br>
+              <p>{{ post.content }}</p> <br>
               <span ng-if='ctrl.user.id === post.user_id'>
                 <i ng-click='ctrl.editPostModal(post)'>edit</i> |  <i ng-click='ctrl.deletePost(post)'>delete</i>
               </span> <hr>

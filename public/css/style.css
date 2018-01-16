@@ -57,6 +57,6 @@ body {
   text-align: center;
 }
 
-.clickable:hover {
+.post:hover {
   cursor: pointer;
 }

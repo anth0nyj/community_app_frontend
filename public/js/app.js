@@ -20,6 +20,29 @@ app.controller("mainController", ["$http", function($http) {
   this.formData = {};
   this.deleteObj = {};
   this.clickedLog = false;
+  this.ledgers = [];
+  this.userLedgers = [];
+
+  this.getLedgers = (user) => {
+    $http({
+      method: 'GET',
+      url: this.url + '/ledgers',
+    }).then(response => {
+      this.ledgers = response.data;
+      console.log(this.ledgers);
+      for (ledger of this.ledgers) {
+        if (ledger.user_id == user.id) {
+          this.userLedgers.push(ledger);
+          for (comm of this.allCommunities) {
+            if (ledger.community_id == comm.id) {
+              this.userCommunities.push(comm);
+            }
+          }
+        }
+      }
+      console.log(this.userCommunities);
+    })
+  };
 
   this.login = (userPass) => {
     // console.log(userPass);
@@ -35,6 +58,7 @@ app.controller("mainController", ["$http", function($http) {
       this.logged = true;
       this.clickedLog = false;
       localStorage.setItem('token', JSON.stringify(response.data.token));
+      this.getLedgers(this.user);
     });
   }
 
@@ -93,6 +117,18 @@ app.controller("mainController", ["$http", function($http) {
     }, error => {
       console.error(error.message);
     }).catch( err => console.error('Catch', err));
+  }
+
+  this.joinComm = (community) => {
+    console.log(community);
+    console.log(this.user);
+    $http({
+      method: 'POST',
+      url: this.url + '/ledgers',
+      data: { user_id: this.user.id, community_id: community.id }
+    }).then(response => {
+      console.log(response.data);
+    })
   }
 
   this.getAllCommunities();
