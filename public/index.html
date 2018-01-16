@@ -5,6 +5,7 @@
     <title>Community App</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/modals.css">
@@ -75,12 +76,18 @@
         </div>
 
         <div class="post-box three">
-          <h2>{{ ctrl.showPost.title }}</h2>
-          {{ ctrl.showPost.content }} <hr>
-          <h2>Replies:</h2>
+          <div class="activePost">
+            <h2>{{ ctrl.showPost.title }}</h2>
+            {{ ctrl.showPost.content }}
+          </div>
+          <div class="replyTitle">
+            <h3>Replies:</h3>
+          </div>
+          <hr>
           <button ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
           <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox | orderBy: 'id'" class="post">
             <p>{{ reply.content }}</p>
+            <hr style="width: auto">
             <span ng-if='ctrl.user.id === reply.user_id'>
               <i ng-click='ctrl.editReplyModal(reply)'>edit</i> |  <i ng-click='ctrl.deleteReply(reply)'>delete</i>
             </span>
