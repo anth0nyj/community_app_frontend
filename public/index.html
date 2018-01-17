@@ -39,7 +39,7 @@
 
     <div class="welcomeContainer">
       <h1 ng-if='ctrl.logged' class="welcome">Welcome, {{ ctrl.user.username }}!</h1>
-      <input type="text" class="searchBox" ng-model="searchBox" placeholder="Search..." ng-class=' (ctrl.clickedUserComm === false ? "searchToggle": "")'/>
+      <!-- <input type="text" class="searchBox" ng-model="searchBox" placeholder="Search..." ng-class=' (ctrl.clickedUserComm === false ? "searchToggle": "")'/> -->
     </div>
 
     <div class="main">
@@ -95,24 +95,38 @@
 
 
         <div class="post-box one" ng-if="ctrl.clickedUserComm === false">
-          <h1>Communities</h1>
+
+          <h1 ng-mouseover="ctrl.toggleComSearch()" ng-hide="ctrl.showComSearch">Communities</h1>
+
+          <form ng-submit="ctrl.toggleComSearch()">
+            <input ng-if="ctrl.showComSearch" placeholder="Search Communities..." ng-model="comSearch">
+          </form>
+
           <button class="addBtn addOne" ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
           <div class="postContainer">
-            <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post commContainer" ng-class='(ctrl.showCommunity === community ? "showComm" : "")' ng-click='ctrl.showThisCommunity(community); toggle = !toggle'>
+
+            <div ng-repeat="community in ctrl.allCommunities | filter: comSearch" class="post commContainer" ng-class='(ctrl.showCommunity === community ? "showComm" : "")' ng-click='ctrl.showThisCommunity(community); toggle = !toggle'>
               <h2 class="communityName">{{ community.name | limitTo: 23}}</h2>
               <span ng-if="ctrl.logged" class="join" ng-click="ctrl.joinComm(community)">+</span>
             </div>
+
           </div>
         </div>
 
         <div class="post-box two" ng-if="ctrl.clickedUserComm === false">
-          <h1>{{ ctrl.showCommunity.name }} posts</h1>
+
+          <h1 ng-mouseover="ctrl.togglePostSearch()" ng-hide="ctrl.showPostSearch">{{ ctrl.showCommunity.name }} posts</h1>
+
+          <form ng-submit="ctrl.togglePostSearch()">
+            <input ng-if="ctrl.showPostSearch" placeholder="Search Posts..." ng-model="postSearch">
+          </form>
+
           <button class="addBtn addTwo" ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
           <div class="postContainer">
             <p class="noPost" ng-if="!ctrl.showPost">No Posts Yet</p>
-            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-class='(ctrl.showPost === post ? "showPost" : "")' ng-click='ctrl.showThisPost(post)'>
+            <div ng-repeat="post in ctrl.showCommunity.posts | filter: postSearch | orderBy: 'id'" class="post" ng-class='(ctrl.showPost === post ? "showPost" : "")' ng-click='ctrl.showThisPost(post)'>
               <h3 class="title">{{ post.title }}</h3>
               <p class="postContent">{{ post.content }}</p> <br>
               <span ng-if='ctrl.user.id === post.user_id'>
@@ -130,11 +144,16 @@
             <p class="postContent">{{ ctrl.showPost.content }}</p>
           </div>
           <div class="replyTitle">
-            <h3>Replies:</h3>
+            <h3 ng-mouseover="ctrl.toggleReplySearch()" ng-hide="ctrl.showReplySearch">Replies:</h3>
+
+            <form ng-submit="ctrl.toggleReplySearch()">
+              <input ng-if="ctrl.showReplySearch" placeholder="Search Posts..." ng-model="replySearch">
+            </form>
+
           </div>
           <hr>
           <button class="addBtn addThree" ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
-          <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox | orderBy: 'id'" class="post reply">
+          <div ng-repeat="reply in ctrl.showPost.replies | filter: replySearch | orderBy: 'id'" class="post reply">
             <p class="replyContent">{{ reply.content }}</p>
             <!-- <hr style="width: auto"> -->
             <span ng-if='ctrl.user.id === reply.user_id'>

@@ -25,6 +25,9 @@ app.controller("mainController", ["$http", function($http) {
   this.ledgers = [];
   this.userLedgers = [];
   this.clickedUserComm = false;
+  this.showComSearch = false;
+  this.showPostSearch = false;
+  this.showReplySearch = false;
 
   this.getLedgers = (user) => {
     $http({
@@ -135,6 +138,24 @@ app.controller("mainController", ["$http", function($http) {
   }
 
   this.getAllCommunities();
+
+  this.toggleComSearch = () => {
+    console.log(`Old state: `, this.showComSearch);
+    this.showComSearch = !this.showComSearch;
+    console.log(`New state: `, this.showComSearch);
+  }
+
+  this.togglePostSearch = () => {
+    console.log(`Old state: `, this.showPostSearch);
+    this.showPostSearch = !this.showPostSearch;
+    console.log(`New state: `, this.showPostSearch);
+  }
+
+  this.toggleReplySearch = () => {
+    console.log(`Old state: `, this.showReplySearch);
+    this.showReplySearch = !this.showReplySearch;
+    console.log(`New state: `, this.showReplySearch);
+  }
 
   this.showUserComm = () => {
     this.clickedUserComm = true;
