@@ -1,24 +1,28 @@
-<div class='addCommunity' ng-if='ctrl.createComm'>
+<div class='edit' ng-if='ctrl.createComm'>
   <p ng-click='ctrl.dontAdd()'>x</p>
-  <form ng-submit='ctrl.addCommunity()'>
-    <input type="text" ng-model='ctrl.formData.name' required/>
-    <button type="submit" class="submit">+</button>
+  <form class="postForm" ng-submit='ctrl.addCommunity()'>
+    <label for="community">Community Name</label>
+    <input id="community" type="text" ng-model='ctrl.formData.name' required/>
+    <button type="submit" class="submit">add</button>
   </form>
 </div>
 
-<div class='addPost' ng-if='ctrl.createPost'>
+<div class='edit' ng-if='ctrl.createPost'>
   <p ng-click='ctrl.dontAdd()'>x</p>
-  <form ng-submit='ctrl.addPost()'>
-    <input type="text" ng-model='ctrl.formData.title' required/>
+  <form class="postForm" ng-submit='ctrl.addPost()'>
+    <label for="newTitle">Post Title</label>
+    <input id="newTitle" type="text" ng-model='ctrl.formData.title' required/>
+    <label for="newContent">Post Content</label>
     <textarea ng-model='ctrl.formData.content' required></textarea>
-    <button type="submit" class="submit">+</button>
+    <button type="submit" class="submit">add</button>
   </form>
 </div>
 
-<div class='addReply' ng-if='ctrl.createReply'>
+<div class='edit' ng-if='ctrl.createReply'>
   <p ng-click='ctrl.dontAdd()'>x</p>
-  <form ng-submit='ctrl.addReply()'>
-    <textarea ng-model='ctrl.formData.content' required></textarea>
-    <button type="submit" class="submit">+</button>
+  <form class="postForm" ng-submit='ctrl.addReply()'>
+    <label for="newReply">Reply</label>
+    <textarea id="newReply" ng-model='ctrl.formData.content' required></textarea>
+    <button type="submit" class="submit">add</button>
   </form>
 </div>
