@@ -97,10 +97,12 @@
       <div class = 'modalContainer' ng-if='ctrl.editp'>
         <div class = 'edit'>
           <p ng-click='ctrl.dontEdit()'>x</p>
-          <form ng-submit='ctrl.editPost()'>
-            <input type="text" ng-model="ctrl.currentEdit.title"required/>
-            <textarea ng-model="ctrl.currentEdit.content" required></textarea>
-            <button type="submit" class="submit">+</button>
+          <form ng-submit='ctrl.editPost()' class="postForm">
+            <label for="title">Edit Post</label>
+            <input id="title" type="text" ng-model="ctrl.currentEdit.title"required/>
+            <label for="content">Content</label>
+            <textarea id="content" ng-model="ctrl.currentEdit.content" required></textarea>
+            <button type="submit" class="submit">save</button>
           </form>
         </div>
       </div>
@@ -108,9 +110,10 @@
       <div class='modalContainer' ng-if='ctrl.editr'>
         <div class='edit'>
           <p ng-click='ctrl.dontEdit()'>x</p>
-          <form ng-submit='ctrl.editReply(ctrl.currentEdit.id)'>
-            <textarea ng-model="ctrl.currentEdit.content" required></textarea>
-            <button type="submit" class="submit">+</button>
+          <form class="postForm" ng-submit='ctrl.editReply(ctrl.currentEdit.id)'>
+            <label for="replycontent">Edit Reply</label>
+            <textarea id="replycontent" ng-model="ctrl.currentEdit.content" required></textarea>
+            <button type="submit" class="submit">save</button>
           </form>
         </div>
       </div>
