@@ -79,8 +79,8 @@ form {
 
 /* ======SCROLLBAR STYLING=========*/
 ::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
+  width: 3px;
+  height: 3px;
 }
 ::-webkit-scrollbar-button {
   width: 0px;
@@ -109,9 +109,11 @@ form {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
-::-webkit-scrollbar:vertical {
+/* ::-webkit-scrollbar:vertical {
   display: none;
-}
+} */
+
+
 
 
 .loginContainer::-webkit-scrollbar {

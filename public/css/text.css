@@ -1,0 +1,33 @@
+.communityName {
+  font-size: 15px;
+  vertical-align:text-bottom;
+  height: 20px;
+  position: relative;
+  top: 25%;
+  transform: translateY(-70%);
+}
+
+.commContainer {
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(25, 25, 25, .6);
+}
+.join {
+  color: #346366;
+  font-weight: 800;
+  font-size: 25px;
+  display: inline;
+  width: 10px;
+  padding-left: 10px;
+}
+
+.join:hover{
+  color: white;
+}
+
+.post-box {
+  height: 500px;
+  overflow: scroll;
+}
