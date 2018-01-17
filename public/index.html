@@ -47,7 +47,7 @@
           <h1>Communities</h1>
           <button class="addBtn addOne" ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
-          <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-click='ctrl.showThisCommunity(community)'>
+          <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post" ng-class="{'underline' : toggle}" ng-click='ctrl.showThisCommunity(community); toggle = !toggle'>
             <h2>{{ community.name }}</h2>
             <button class="button" ng-click="ctrl.joinComm(community)">Join</button>
             <hr>
