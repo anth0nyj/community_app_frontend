@@ -39,7 +39,7 @@
 
     <div class="welcomeContainer">
       <h1 ng-if='ctrl.logged' class="welcome">Welcome, {{ ctrl.user.username }}!</h1>
-      <input type="text" class="searchBox" ng-model="searchBox" placeholder="Search...">
+      <input type="text" class="searchBox" ng-model="searchBox" placeholder="Search..." ng-class=' (ctrl.clickedUserComm === false ? "searchToggle": "")'/>
     </div>
 
     <div class="main">
@@ -173,8 +173,8 @@
       </div>
     </div>
 
-    <footer>
-      Made with &hearts; by <a href="https://www.github.com/jnm2377">Josefina</a>, <a href="https://www.github.com/EthanJob">Ethan</a>, and <a href="https://www.github.com/anth0nyj">Anthony</a> @ <a href="https://www.generalassemb.ly">GA</a>
+    <footer ng-class=' (ctrl.clickedUserComm ? "footerToggle": "")'>
+      <span class="footertext"> Made with &hearts; by <a href="https://www.github.com/jnm2377">Josefina</a>, <a href="https://www.github.com/EthanJob">Ethan</a> and <a href="https://www.github.com/anth0nyj">Anthony</a> @ <a href="https://www.generalassemb.ly">GA</a></span>
     </footer>
 
   </body>

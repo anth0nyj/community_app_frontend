@@ -1,16 +1,15 @@
 body {
   color: white;
   background-color: rgb(46, 46, 47);
-  /* font-family: Arial; */
   font-family: 'Montserrat', sans-serif;
-  display: flex;
-  min-height: 100vh;
+  margin: 0;
+  /* display: flex; */
+  /* min-height: 100vh; */
   /* max-height: 100vh; */
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .post {
-  /* border: 1px solid red; */
   /* width: 380px; */
   text-align: left;
   padding: 0 10px 0 10px;
@@ -51,7 +50,6 @@ body {
 
 .main {
   text-align: center;
-  flex: 1;
 }
 
 .content {
@@ -100,4 +98,33 @@ body {
 
 footer {
   text-align: center;
+  margin: 20px auto;
+  background: rgba(215, 122, 97, 1);
+  height: 30px;
+  width: 80%;
+  color: white;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+footer > span > a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 0 2px;
+}
+
+.footerToggle {
+  background-color: rgb(52, 99, 102);
+}
+
+.footerToggle > span > a {
+  color: rgba(215, 122, 97, 1);
+  text-decoration: none;
+}
+
+.footertext {
+  position: relative;
+  top: 10%;
+  transform: translateY(-80%);
 }

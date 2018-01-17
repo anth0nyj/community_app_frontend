@@ -59,6 +59,10 @@
   font-family: 'Montserrat';
 }
 
+.searchToggle {
+  border: 1px solid rgba(215, 122, 97, 1);
+}
+
 input::placeholder {
   font-family: 'Montserrat';
 }
@@ -119,6 +123,15 @@ i:hover {
     width: 450px;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  footer {
+    width: 450px;
+    font-size: 12px;
+  }
+
+  footer > span > a {
+    font-size: 12px;
   }
 
   .post-box {
