@@ -1,10 +1,16 @@
 .communityName {
   font-size: 15px;
-  vertical-align:text-bottom;
+  /* vertical-align:text-bottom; */
   height: 20px;
   position: relative;
   top: 25%;
   transform: translateY(-70%);
+}
+
+.post {
+  /* border: 1px solid #333333; */
+  border: 1px solid transparent;
+  border-bottom: 1px solid #333333;
 }
 
 .commContainer {
@@ -12,7 +18,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(25, 25, 25, .6);
+  border-bottom: 1px solid rgba(100, 100, 100, .6);
 }
 .join {
   color: #346366;
@@ -48,10 +54,18 @@
   background-color: transparent;
   padding: 5px 0;
   outline: 0;
+  width: 30%;
+  color: white;
+  font-family: 'Montserrat';
+}
+
+input::placeholder {
+  font-family: 'Montserrat';
 }
 
 .searchBox:hover, .searchBox:focus {
   color: white;
+  border: 1px solid white;
 }
 
 .showComm {
@@ -60,4 +74,95 @@
 
 .showPost {
   background-color: rgba(25, 25, 25, .6);
+}
+
+
+.title {
+  font-size: 15px;
+}
+
+.postContent {
+  font-weight: 100;
+  font-size: 12px;
+}
+
+ .reply {
+   border: none;
+   border-bottom: 1px solid #333333;
+ }
+
+.replyContent {
+  font-size: 12px;
+  position: relative;
+  top: 70%;
+  transform: translateY(20%);
+}
+
+i {
+  font-size: 11px;
+  color: gray;
+}
+
+i:hover {
+  color: white;
+}
+
+
+
+
+
+/* ========MEDIA QUERIES=============== */
+@media (max-width: 870px) {
+  .content {
+    margin: auto;
+    display: flex;
+    width: 450px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .post-box {
+    width: 450px;
+    border-radius: 0px;
+  }
+
+  .two, .three {
+    width: 49%;
+  }
+
+  .postContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content:flex-start;
+    width: auto;
+  }
+
+  .noPost {
+    margin-left: 25%;
+  }
+
+  .one > .postContainer > .post {
+    width: 45%;
+  }
+
+  .reply {
+    width: 90%;
+  }
+
+  .one {
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .two {
+    border-radius: 0 0 0 10px;
+    height: 500px;
+  }
+
+  .three {
+    border-radius: 0 0 10px 0;
+    height: 500px;
+  }
 }
