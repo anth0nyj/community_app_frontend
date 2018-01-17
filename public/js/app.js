@@ -39,12 +39,11 @@ app.controller("mainController", ["$http", function($http) {
           for (comm of this.allCommunities) {
             if (ledger.community_id == comm.id) {
               this.userCommunities.push(comm);
-            }
-          }
-        }
-      }
+      }}}}
       console.log(this.userCommunities);
-    })
+    }, error => {
+      console.error(error.message);
+    }).catch( err => console.error('Catch: ', err));
   };
 
   this.login = (userPass) => {
@@ -62,7 +61,9 @@ app.controller("mainController", ["$http", function($http) {
       this.clickedLog = false;
       localStorage.setItem('token', JSON.stringify(response.data.token));
       this.getLedgers(this.user);
-    });
+    }, error => {
+      console.error(error.message);
+    }).catch( err => console.error('Catch: ', err));
   }
 
   this.register = (regData) => {
@@ -79,7 +80,9 @@ app.controller("mainController", ["$http", function($http) {
       this.logged = true;
       this.clickedLog = false;
       localStorage.setItem('token', JSON.stringify(response.data.token));
-    });
+    }, error => {
+      console.error(error.message);
+    }).catch( err => console.error('Catch: ', err));
   }
 
   this.getUsers = () => {
@@ -96,7 +99,9 @@ app.controller("mainController", ["$http", function($http) {
       } else {
         this.users = response.data;
       }
-    })
+    }, error => {
+      console.error(error.message);
+    }).catch( err => console.error('Catch: ', err));
   }
 
   this.logout = () => {
@@ -119,7 +124,7 @@ app.controller("mainController", ["$http", function($http) {
       // console.log('Default Show Post', this.showPost);
     }, error => {
       console.error(error.message);
-    }).catch( err => console.error('Catch', err));
+    }).catch( err => console.error('Catch: ', err));
   }
 
   this.joinComm = (community) => {
@@ -131,7 +136,9 @@ app.controller("mainController", ["$http", function($http) {
       data: { user_id: this.user.id, community_id: community.id }
     }).then(response => {
       console.log(response.data);
-    })
+    }, error => {
+      console.error(error.message);
+    }).catch( err => console.error('Catch: ', err));
   }
 
   this.getAllCommunities();
@@ -159,7 +166,7 @@ app.controller("mainController", ["$http", function($http) {
       this.showCommunity.posts.splice(updateByIndex, 1, response.data);
     }, error => {
       console.error(error.message);
-    }).catch(err => console.error('Catch', err));
+    }).catch(err => console.error('Catch: ', err));
 
     this.editp = false;
     this.currentEdit = {};
@@ -176,7 +183,7 @@ app.controller("mainController", ["$http", function($http) {
       this.showPost.replies.splice(updateByIndex, 1, response.data);
     }, error => {
       console.error(error.message);
-    }).catch(err => console.error('Catch', err));
+    }).catch(err => console.error('Catch: ', err));
 
     this.editr = false;
     this.currentEdit = {};
@@ -222,7 +229,7 @@ app.controller("mainController", ["$http", function($http) {
       this.createComm = false;
     }, error => {
       console.error(error.message);
-    }).catch(err => console.err('Catch', err));
+    }).catch(err => console.err('Catch: ', err));
   }
 
   this.addPost = () => {
@@ -238,7 +245,7 @@ app.controller("mainController", ["$http", function($http) {
       this.createPost = false;
     }, error => {
       console.error(error.message);
-    }).catch(err => console.err('Catch', err));
+    }).catch(err => console.err('Catch: ', err));
   }
 
   this.addReply = () => {
@@ -254,7 +261,7 @@ app.controller("mainController", ["$http", function($http) {
       this.createReply = false;
     }, error => {
       console.error(error.message);
-    }).catch(err => console.err('Catch', err));
+    }).catch(err => console.err('Catch: ', err));
 
   }
 
@@ -269,7 +276,7 @@ app.controller("mainController", ["$http", function($http) {
       this.deleteObj = {};
     }, error => {
       console.error(error.message);
-    }).catch(err => console.err('Catch', err));
+    }).catch(err => console.err('Catch: ', err));
   }
 
   this.deleteReply = (reply) => {
@@ -283,7 +290,7 @@ app.controller("mainController", ["$http", function($http) {
       this.deleteObj = {};
     }, error => {
       console.error(error.message);
-    }).catch(err => console.err('Catch', err));
+    }).catch(err => console.err('Catch: ', err));
   }
 
   this.showThisCommunity = (communityClicked) => {
