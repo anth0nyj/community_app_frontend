@@ -47,7 +47,7 @@
           <h1>Communities</h1>
           <button class="addBtn addOne" ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
-          <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post commContainer" ng-class="{'underline' : toggle}" ng-click='ctrl.showThisCommunity(community); toggle = !toggle'>
+          <div ng-repeat="community in ctrl.allCommunities | filter: searchBox" class="post commContainer" ng-class='(ctrl.showCommunity === community ? "showComm" : "")' ng-click='ctrl.showThisCommunity(community); toggle = !toggle'>
             <h2 class="communityName">{{ community.name | limitTo: 30}}</h2>
             <span ng-if="ctrl.logged" class="join" ng-click="ctrl.joinComm(community)">+</span>
           </div>
@@ -57,7 +57,7 @@
           <h1>{{ ctrl.showCommunity.name }} posts</h1>
           <button class="addBtn addTwo" ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
-            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-click='ctrl.showThisPost(post)'>
+            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-class='(ctrl.showPost === post ? "showPost" : "")' ng-click='ctrl.showThisPost(post)'>
               <h3>{{ post.title }}</h3> <br>
               <p>{{ post.content }}</p> <br>
               <span ng-if='ctrl.user.id === post.user_id'>
