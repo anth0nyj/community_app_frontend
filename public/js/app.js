@@ -48,7 +48,7 @@ app.controller("mainController", ["$http", function($http) {
   };
 
   this.login = (userPass) => {
-    // console.log(userPass);
+    console.log(userPass);
 
     $http({
       method: 'POST',
