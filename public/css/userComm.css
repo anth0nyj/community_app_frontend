@@ -1,12 +1,12 @@
 .userTwo {
-  background-color: orange;
-  border: 1px solid orange;
+  background-color: #d77a61;
+  border: 2px solid #d77a61;
 }
 
 .userOne {
-  border: 1px solid orange;
+  border: 2px solid #d77a61;
 }
 
 .userOneBtn {
-  background: orange;
+  background: #d77a61;
 }
