@@ -104,7 +104,7 @@ form {
   margin: 5px;
 }
 
-.edit >p:hover {
+.edit >p:hover, .addCommunity >p {
   cursor: pointer;
   color: black;
 }
@@ -149,7 +149,6 @@ textarea {
 .addOne:hover, .addOne:focus {
   color: gray;
 }
-
 
 
 /* ======SCROLLBAR STYLING=========*/

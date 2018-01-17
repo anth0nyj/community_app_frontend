@@ -24,6 +24,7 @@ app.controller("mainController", ["$http", function($http) {
   this.clickedLog = false;
   this.ledgers = [];
   this.userLedgers = [];
+  this.clickedUserComm = false;
 
   this.getLedgers = (user) => {
     $http({
@@ -134,6 +135,18 @@ app.controller("mainController", ["$http", function($http) {
   }
 
   this.getAllCommunities();
+
+  this.showUserComm = () => {
+    this.clickedUserComm = true;
+    this.showCommunity = this.userCommunities[0];
+    this.showPost = this.showCommunity.posts[0];
+  }
+
+  this.showAllComm = () => {
+    this.clickedUserComm = false;
+    this.showCommunity = this.allCommunities[0];
+    this.showPost = this.showCommunity.posts[0];
+  }
 
   this.editPostModal = ( post) => {
     this.editp = true;
