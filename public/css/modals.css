@@ -63,6 +63,7 @@ button {
   border-radius: 4px;
   height: 2em;
   margin-top: 10px;
+  font-family: 'Montserrat'
 }
 
 button:hover, button:focus {
@@ -119,7 +120,7 @@ form {
   height: 2em;
   border: none;
   outline: none;
-  font-family: 'Arial';
+  font-family: 'Montserrat';
   color: white;
   margin: 10px 0;
   background-color: #333333;
@@ -131,7 +132,7 @@ form {
 textarea {
   border: none;
   outline: none;
-  font-family: 'Arial';
+  font-family: 'Montserrat';
   color: white;
   margin: 10px 0;
   height: 5em;
@@ -143,6 +144,10 @@ textarea {
 .postForm >label {
   color: #346366;
   text-align: left;
+}
+
+.addOne:hover, .addOne:focus {
+  color: gray;
 }
 
 
