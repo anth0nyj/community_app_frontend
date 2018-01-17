@@ -31,3 +31,25 @@
   height: 500px;
   overflow: scroll;
 }
+
+.welcomeContainer {
+  margin: 20px auto;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.searchBox {
+  margin: auto;
+  display: block;
+  border: 1px solid #346366;
+  text-align: center;
+  background-color: transparent;
+  padding: 5px 0;
+  outline: 0;
+}
+
+.searchBox:hover, .searchBox:focus {
+  color: white;
+}

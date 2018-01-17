@@ -20,24 +20,25 @@
         <p ng-click='ctrl.clickedLog = false'>x</p>
         <label for="login-form">Login</label>
         <form ng-submit="ctrl.login(userPass)">
-          <input type="text" ng-model="userPass.username" placeholder="username" />
-          <input type="password" ng-model="userPass.password" placeholder="password" />
+          <input class="login" type="text" ng-model="userPass.username" placeholder="username" />
+          <input class="login" type="password" ng-model="userPass.password" placeholder="password" />
           <button type="submit">Submit</button>
         </form>
 
         <label for="register-form">Register</label>
         <form ng-submit="ctrl.register(regData)">
-          <input type="text" ng-model="regData.username" placeholder="username" />
-          <input type="password" ng-model="regData.password" placeholder="password" />
+          <input class="login" type="text" ng-model="regData.username" placeholder="username" />
+          <input class="login" type="password" ng-model="regData.password" placeholder="password" />
           <!-- <input type="password" ng-model="regData.confirmPass" placeholder="confirm password" /> -->
           <button type="submit">Submit</button>
         </form>
       </div>
     </div>
 
-    <input type="text" class="searchBox" ng-model="searchBox" placeholder="Search...">
-
-    <p ng-if='ctrl.logged'>Welcome, {{ ctrl.user.username }}</p>
+    <div class="welcomeContainer">
+      <h1 ng-if='ctrl.logged' class="welcome">Welcome, {{ ctrl.user.username }}!</h1>
+      <input type="text" class="searchBox" ng-model="searchBox" placeholder="Search...">
+    </div>
 
     <div class="main">
       <div class="content">

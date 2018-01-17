@@ -42,14 +42,14 @@
   margin: auto;
 }
 
-input {
+.login  {
   background-color: transparent;
   border: none;
   border-bottom:1px solid #346366;
   padding: 5px 0;
 }
 
-input:hover, input:focus {
+.login:focus, .login:hover {
   outline: 0;
   border-bottom:1px solid #333333;
 }
