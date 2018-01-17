@@ -49,7 +49,7 @@
           <button class="addBtn addOne userOneBtn" ng-if='ctrl.logged' ng-click='ctrl.addCommModal()'>Add Community</button>
           <hr>
           <div class="postContainer">
-            <div ng-repeat="community in ctrl.userCommunities | filter: searchBox" class="post commContainer" ng-class='(ctrl.showCommunity === community ? "showComm" : "")' ng-click='ctrl.showThisCommunity(community); toggle = !toggle'>
+            <div ng-repeat="community in ctrl.userCommunities | filter: searchBox" class="post commContainer" ng-class='(ctrl.showCommunity === community ? "showComm" : "")' ng-click='ctrl.showThisCommunity(community); toggle = !toggle' ng-if="ctrl.userCommunities[0]">
               <h2 class="communityName">{{ community.name | limitTo: 23}}</h2>
               <span ng-if="ctrl.logged" class="join" ng-click="ctrl.joinComm(community)">+</span>
             </div>
@@ -61,8 +61,8 @@
           <button class="addBtn addTwo" ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
           <div class="postContainer">
-            <p class="noPost" ng-if="!ctrl.showPost">No Posts Yet</p>
-            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-class='(ctrl.showPost === post ? "showPost" : "")' ng-click='ctrl.showThisPost(post)'>
+            <p class="noPost" ng-if="ctrl.showPost">No Posts Yet</p>
+            <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-class='(ctrl.showPost === post ? "showPost" : "")' ng-click='ctrl.showThisPost(post)' ng-if="ctrl.userCommunities[0]">
               <h3 class="title">{{ post.title }}</h3>
               <p class="postContent">{{ post.content }}</p> <br>
               <span ng-if='ctrl.user.id === post.user_id'>
@@ -75,7 +75,7 @@
 
         <div class="post-box three userThree" ng-if="ctrl.clickedUserComm">
           <div class="activePost">
-            <p ng-if="!ctrl.showPost">No Posts Yet</p>
+            <p ng-if="ctrl.showPost">No Posts Yet</p>
             <h2>{{ ctrl.showPost.title }}</h2>
             <p class="postContent">{{ ctrl.showPost.content }}</p>
           </div>
@@ -84,7 +84,7 @@
           </div>
           <hr>
           <button class="addBtn addThree" ng-if='ctrl.logged' ng-click='ctrl.addReplyModal()'>Add Reply</button>
-          <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox | orderBy: 'id'" class="post reply">
+          <div ng-repeat="reply in ctrl.showPost.replies | filter: searchBox | orderBy: 'id'" class="post reply" ng-if="ctrl.userCommunities[0]">
             <p class="replyContent">{{ reply.content }}</p>
             <!-- <hr style="width: auto"> -->
             <span ng-if='ctrl.user.id === reply.user_id'>
