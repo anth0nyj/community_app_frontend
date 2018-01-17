@@ -7,12 +7,18 @@
   transform: translateY(-70%);
 }
 
+.post {
+  /* border: 1px solid #333333; */
+  border: 1px solid transparent;
+  border-bottom: 1px solid #333333;
+}
+
 .commContainer {
   height: 35px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(25, 25, 25, .6);
+  border-bottom: 1px solid rgba(100, 100, 100, .6);
 }
 .join {
   color: #346366;
@@ -80,12 +86,7 @@ input::placeholder {
   font-size: 12px;
 }
 
- .post {
-   border: 1px solid #333333;
- }
-
  .reply {
-
    border: none;
    border-bottom: 1px solid #333333;
  }
