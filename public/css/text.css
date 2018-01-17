@@ -1,6 +1,6 @@
 .communityName {
   font-size: 15px;
-  vertical-align:text-bottom;
+  /* vertical-align:text-bottom; */
   height: 20px;
   position: relative;
   top: 25%;
@@ -60,4 +60,100 @@
 
 .showPost {
   background-color: rgba(25, 25, 25, .6);
+}
+
+
+.title {
+  font-size: 15px;
+}
+
+.postContent {
+  font-weight: 100;
+  font-size: 11px;
+}
+
+ .post {
+   border: 1px solid #333333;
+ }
+
+ .reply {
+
+   border: none;
+   border-bottom: 1px solid #333333;
+ }
+
+.replyContent {
+  font-size: 11px;
+  position: relative;
+  top: 70%;
+  transform: translateY(20%);
+}
+
+i {
+  font-size: 9px;
+  color: gray;
+}
+
+i:hover {
+  color: white;
+}
+
+
+
+
+
+/* ========MEDIA QUERIES=============== */
+@media (max-width: 870px) {
+  .content {
+    margin: auto;
+    display: flex;
+    width: 450px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .post-box {
+    width: 450px;
+    border-radius: 0px;
+  }
+
+  .two, .three {
+    width: 49%;
+  }
+
+  .postContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content:flex-start;
+    width: auto;
+  }
+
+  .noPost {
+    margin-left: 25%;
+  }
+
+  .one > .postContainer > .post {
+    width: 45%;
+  }
+
+  .reply {
+    width: 90%;
+  }
+
+  .one {
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .two {
+    border-radius: 0 0 0 10px;
+    height: 500px;
+  }
+
+  .three {
+    border-radius: 0 0 10px 0;
+    height: 500px;
+  }
 }
