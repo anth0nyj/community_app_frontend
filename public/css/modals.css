@@ -31,6 +31,7 @@
 
 .loginForm >p:hover {
   cursor: pointer;
+  color: black;
 }
 .loginForm >label {
   color: #346366;
@@ -42,30 +43,34 @@
   margin: auto;
 }
 
-input {
+.login  {
   background-color: transparent;
   border: none;
   border-bottom:1px solid #346366;
   padding: 5px 0;
 }
 
-input:hover, input:focus {
+.login:focus, .login:hover {
   outline: 0;
   border-bottom:1px solid #333333;
 }
 
 button {
-  border: 1px solid #ffffff;
   width: auto;
-  background-color: transparent;
+  background-color: #333333;
+  color: white;
+  font-weight: lighter;
   border-radius: 4px;
   height: 2em;
   margin-top: 10px;
+  font-family: 'Montserrat'
 }
 
 button:hover, button:focus {
   outline: 0;
-  border: 1px solid #333333;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: #333333;
 }
 
 form {
@@ -74,13 +79,83 @@ form {
   padding-bottom: 20px;
 }
 
+.submit {
+  background-color: transparent;
+  color: #346366;
+  width: 25%;
+  display: inline;
+}
+
+.edit {
+  background: rgba(255,255,255, 0.9);
+  width: 300px;
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit >p {
+  color: #346366;
+  font-size: 20px;
+  font-weight:lighter;
+  text-align: center;
+  width: 15px;
+  height: 10px;
+  margin: 5px;
+}
+
+.edit >p:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.postForm {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+}
+
+.postForm > input {
+  height: 2em;
+  border: none;
+  outline: none;
+  font-family: 'Montserrat';
+  color: white;
+  margin: 10px 0;
+  background-color: #333333;
+  width: 100%;
+  border-radius: 4px;
+  text-align: center;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  font-family: 'Montserrat';
+  color: white;
+  margin: 10px 0;
+  height: 5em;
+  background-color: #333333;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.postForm >label {
+  color: #346366;
+  text-align: left;
+}
+
+.addOne:hover, .addOne:focus {
+  color: gray;
+}
 
 
 
 /* ======SCROLLBAR STYLING=========*/
 ::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
+  width: 3px;
+  height: 3px;
 }
 ::-webkit-scrollbar-button {
   width: 0px;
@@ -109,9 +184,11 @@ form {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
-::-webkit-scrollbar:vertical {
+/* ::-webkit-scrollbar:vertical {
   display: none;
-}
+} */
+
+
 
 
 .loginContainer::-webkit-scrollbar {

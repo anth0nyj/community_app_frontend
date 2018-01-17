@@ -7,7 +7,7 @@ body {
 
 .post {
   /* border: 1px solid red; */
-  width: 380px;
+  /* width: 380px; */
   text-align: left;
   padding: 0 10px 0 10px;
 }
@@ -25,7 +25,6 @@ body {
 }
 
 .replyTitle {
-  /* border: 1px solid red; */
   text-align: left;
   padding-left: 10px;
 }
@@ -54,9 +53,42 @@ body {
   width: 80%;
   display: flex;
   margin: auto;
-  text-align: center;
+  justify-content: center;
 }
 
 .post:hover {
   cursor: pointer;
+}
+
+.button {
+  min-width: 70px;
+  color: white;
+  background-color: rgb(52, 99, 102);
+}
+
+.addBtn {
+  color: white;
+  min-width: 170px;
+}
+
+.addOne {
+  background-color: rgb(52, 99, 102);
+}
+
+.addTwo {
+  color: rgb(46, 46, 47);
+  border: 1px solid rgb(46, 46, 47);
+  background-color: rgb(216, 217, 218);
+}
+
+.addTwo:hover {
+  border-color: white;
+}
+
+.addThree {
+  background-color: rgb(85, 85, 86);
+}
+
+.underline {
+  text-decoration: underline;
 }
