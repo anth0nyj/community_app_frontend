@@ -7,7 +7,7 @@ body {
 
 .post {
   /* border: 1px solid red; */
-  width: 380px;
+  /* width: 380px; */
   text-align: left;
   padding: 0 10px 0 10px;
 }
@@ -87,4 +87,8 @@ body {
 
 .addThree {
   background-color: rgb(85, 85, 86);
+}
+
+.underline {
+  text-decoration: underline;
 }
