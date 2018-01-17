@@ -61,7 +61,7 @@
           <button class="addBtn addTwo" ng-if='ctrl.logged' ng-click='ctrl.addPostModal()'>Add Post</button> <hr>
           <!-- <div ng-repeat="community in ctrl.allCommunities"> -->
           <div class="postContainer">
-            <p class="noPost" ng-if="ctrl.showPost">No Posts Yet</p>
+            <p class="noPost" ng-if="ctrl.showPost === false">No Posts Yet</p>
             <div ng-repeat="post in ctrl.showCommunity.posts | filter: searchBox | orderBy: 'id'" class="post" ng-class='(ctrl.showPost === post ? "showPost" : "")' ng-click='ctrl.showThisPost(post)' ng-if="ctrl.userCommunities[0]">
               <h3 class="title">{{ post.title }}</h3>
               <p class="postContent">{{ post.content }}</p> <br>
@@ -75,7 +75,7 @@
 
         <div class="post-box three userThree" ng-if="ctrl.clickedUserComm">
           <div class="activePost">
-            <p ng-if="ctrl.showPost">No Posts Yet</p>
+            <p ng-if="ctrl.showPost === null">No Posts Yet</p>
             <h2>{{ ctrl.showPost.title }}</h2>
             <p class="postContent">{{ ctrl.showPost.content }}</p>
           </div>
