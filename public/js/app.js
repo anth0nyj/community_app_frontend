@@ -22,6 +22,7 @@ app.controller("mainController", ["$http", function($http) {
   this.clickedLog = false;
   this.ledgers = [];
   this.userLedgers = [];
+  this.clickedUserComm = false;
 
   this.getLedgers = (user) => {
     $http({
