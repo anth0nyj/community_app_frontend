@@ -3,7 +3,9 @@ console.log("app.js is linked");
 const app = angular.module("comm_app", []);
 
 app.controller("mainController", ["$http", function($http) {
-  this.url = 'http://localhost:3000';
+  this.url = 'https://entertheconnexus-api.herokuapp.com'
+  // this.url = 'https://entertheconnexus2-api.herokuapp.com'
+  // this.url = 'http://localhost:3000';
   this.user = {};
   this.logged = false;
   this.allCommunities = [];
@@ -22,6 +24,7 @@ app.controller("mainController", ["$http", function($http) {
   this.clickedLog = false;
   this.ledgers = [];
   this.userLedgers = [];
+  this.clickedUserComm = false;
 
   this.getLedgers = (user) => {
     $http({
@@ -132,6 +135,18 @@ app.controller("mainController", ["$http", function($http) {
   }
 
   this.getAllCommunities();
+
+  this.showUserComm = () => {
+    this.clickedUserComm = true;
+    this.showCommunity = this.userCommunities[0];
+    this.showPost = this.showCommunity.posts[0];
+  }
+
+  this.showAllComm = () => {
+    this.clickedUserComm = false;
+    this.showCommunity = this.allCommunities[0];
+    this.showPost = this.showCommunity.posts[0];
+  }
 
   this.editPostModal = ( post) => {
     this.editp = true;

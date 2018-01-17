@@ -1,0 +1,181 @@
+.communityName {
+  font-size: 15px;
+  /* vertical-align:text-bottom; */
+  height: 20px;
+  position: relative;
+  top: 25%;
+  transform: translateY(-70%);
+}
+
+.post {
+  /* border: 1px solid #333333; */
+  border: 1px solid transparent;
+  border-bottom: 1px solid #333333;
+}
+
+.commContainer {
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(100, 100, 100, .6);
+}
+.join {
+  color: #346366;
+  font-weight: 800;
+  font-size: 25px;
+  display: inline;
+  width: 10px;
+  padding-left: 10px;
+}
+
+.join:hover{
+  color: white;
+}
+
+.post-box {
+  height: 500px;
+  overflow: scroll;
+}
+
+.welcomeContainer {
+  margin: 20px auto;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.searchBox {
+  margin: auto;
+  display: block;
+  border: 1px solid #346366;
+  text-align: center;
+  background-color: transparent;
+  padding: 5px 0;
+  outline: 0;
+  width: 30%;
+  color: white;
+  font-family: 'Montserrat';
+}
+
+.searchToggle {
+  border: 1px solid rgba(215, 122, 97, 1);
+}
+
+input::placeholder {
+  font-family: 'Montserrat';
+}
+
+.searchBox:hover, .searchBox:focus {
+  color: white;
+  border: 1px solid white;
+}
+
+.showComm {
+  background-color: rgba(25, 25, 25, .6);
+}
+
+.showPost {
+  background-color: rgba(25, 25, 25, .6);
+}
+
+
+.title {
+  font-size: 15px;
+}
+
+.postContent {
+  font-weight: 100;
+  font-size: 12px;
+}
+
+ .reply {
+   border: none;
+   border-bottom: 1px solid #333333;
+ }
+
+.replyContent {
+  font-size: 12px;
+  position: relative;
+  top: 70%;
+  transform: translateY(20%);
+}
+
+i {
+  font-size: 11px;
+  color: gray;
+}
+
+i:hover {
+  color: white;
+}
+
+
+
+
+
+/* ========MEDIA QUERIES=============== */
+@media (max-width: 870px) {
+  .content {
+    margin: auto;
+    display: flex;
+    width: 450px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    width: 450px;
+    font-size: 12px;
+  }
+
+  footer > span > a {
+    font-size: 12px;
+  }
+
+  .post-box {
+    width: 450px;
+    border-radius: 0px;
+  }
+
+  .two, .three {
+    width: 49%;
+  }
+
+  .postContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content:flex-start;
+    width: auto;
+  }
+
+  .noPost {
+    margin-left: 25%;
+  }
+
+  .one > .postContainer > .post {
+    width: 45%;
+  }
+
+  .reply {
+    width: 90%;
+  }
+
+  .one {
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .two {
+    border-radius: 0 0 0 10px;
+    height: 500px;
+  }
+
+  .three {
+    border-radius: 0 0 10px 0;
+    height: 500px;
+  }
+}
