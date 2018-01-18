@@ -3,8 +3,8 @@ console.log("app.js is linked");
 const app = angular.module("comm_app", []);
 
 app.controller("mainController", ["$http", function($http) {
-  this.url = 'https://entertheconnexus-api.herokuapp.com'
-  // this.url = 'https://entertheconnexus2-api.herokuapp.com'
+  // this.url = 'https://entertheconnexus-api.herokuapp.com'
+  this.url = 'https://entertheconnexus2-api.herokuapp.com'
   // this.url = 'http://localhost:3000';
   this.user = {};
   this.logged = false;
@@ -127,6 +127,18 @@ app.controller("mainController", ["$http", function($http) {
     console.log(this.user);
     $http({
       method: 'POST',
+      url: this.url + '/ledgers',
+      data: { user_id: this.user.id, community_id: community.id }
+    }).then(response => {
+      console.log(response.data);
+    })
+  }
+
+  this.leaveComm = (community) => {
+    console.log(community);
+    console.log(this.user);
+    $http({
+      method: 'DELETE',
       url: this.url + '/ledgers',
       data: { user_id: this.user.id, community_id: community.id }
     }).then(response => {
