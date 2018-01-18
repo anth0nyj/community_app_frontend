@@ -138,8 +138,13 @@ app.controller("mainController", ["$http", function($http) {
 
   this.showUserComm = () => {
     this.clickedUserComm = true;
-    this.showCommunity = this.userCommunities[0];
-    this.showPost = this.showCommunity.posts[0];
+    if(this.userCommunities[0]){
+      this.showCommunity = this.userCommunities[0];
+      this.showPost = this.showCommunity.posts[0];
+    } else {
+      this.showCommunity = [];
+      this.showPost = [];
+    }
   }
 
   this.showAllComm = () => {
