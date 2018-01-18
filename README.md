@@ -13,11 +13,6 @@ Connexus is an all-purpose bulletin board on which users can congregate to discu
 ### Deployment
 Connexus is hosted on Heroku [here](http://entertheconnexus.herokuapp.com/).
 
-<!-- ### Demo user account
-If you're not sure about making your own account on our app to see full CRUD, feel free to use this account:
-- User: guest
-- Password: pw -->
-
 ## Technology
 Connexus is a Rails single-page application using HTML/CSS/Angular for the front-end presentation layer, and Express.js and Node.js to serve the presentation layer; Ruby on Rails for the server-side framework; and PostgreSQL for the database.
 
